@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DMS.Core", "DMS.Core\DMS.Core.csproj", "{FFDC27AF-096C-492B-A38D-DE02A31C1458}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DMS.WebAPI", "DMS.WebAPI\DMS.WebAPI.csproj", "{234D7B32-2BDA-4208-B6A6-6208DF79B9BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.DMS.Desktop", "Client.DMS.Desktop\Client.DMS.Desktop.csproj", "{7B22DBC2-4675-4376-9E7C-F46D6BB1889D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFDC27AF-096C-492B-A38D-DE02A31C1458}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFDC27AF-096C-492B-A38D-DE02A31C1458}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFDC27AF-096C-492B-A38D-DE02A31C1458}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFDC27AF-096C-492B-A38D-DE02A31C1458}.Release|Any CPU.Build.0 = Release|Any CPU
+		{234D7B32-2BDA-4208-B6A6-6208DF79B9BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{234D7B32-2BDA-4208-B6A6-6208DF79B9BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{234D7B32-2BDA-4208-B6A6-6208DF79B9BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{234D7B32-2BDA-4208-B6A6-6208DF79B9BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B22DBC2-4675-4376-9E7C-F46D6BB1889D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B22DBC2-4675-4376-9E7C-F46D6BB1889D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B22DBC2-4675-4376-9E7C-F46D6BB1889D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B22DBC2-4675-4376-9E7C-F46D6BB1889D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

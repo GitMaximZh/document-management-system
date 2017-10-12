@@ -1,0 +1,190 @@
+﻿<Window x:Class="Client.DMS.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client.DMS.Desktop"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MainWindow" WindowState="Maximized"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
+    <Window.InputBindings>
+        <KeyBinding Key="F5" Command="{Binding RefreshCommand}"></KeyBinding>
+    </Window.InputBindings>
+   
+    <Grid>
+        <FrameworkElement Name="DataContextHolder" Visibility="Collapsed"/>
+        <DockPanel Margin="10">
+            <TextBlock Text="DMS client" DockPanel.Dock="Top" FontSize="20"
+                   Margin="10 5 10 10"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.3*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+                    <TextBlock Text="Data sources" Foreground="{DynamicResource PrimaryHueDarkBrush}" 
+                           FontSize="16" Margin="10 15"/>
+                    <ItemsControl>
+                        <ItemsControl.Items>
+                            <materialDesign:Card Padding="10" Margin="5 2">
+                                <DockPanel>
+                                    <CheckBox DockPanel.Dock="Left" IsChecked="{Binding UseLocalStorage, Mode=TwoWay}"/>
+                                    <StackPanel DockPanel.Dock="Right" VerticalAlignment="Center">
+                                        <Button Height="16" Width="16" Style="{DynamicResource MaterialDesignFloatingActionLightButton}">
+                                            <Button.Template>
+                                                <ControlTemplate>
+                                                    <Image Source="Resources/edit_24_24.png"/>
+                                                </ControlTemplate>
+                                            </Button.Template>
+                                        </Button>
+
+                                        <Button Height="16" Width="16" Margin="-3 4 0 0">
+                                            <Button.Template>
+                                                <ControlTemplate>
+                                                    <Image Source="Resources/delete_24_24.png"/>
+                                                </ControlTemplate>
+                                            </Button.Template>
+                                        </Button>
+                                    </StackPanel>
+
+                                    <Image Source="Resources/folder_64_64.png" DockPanel.Dock="Left" Height="36" Width="36" 
+                                           VerticalAlignment="Top" Margin="8 0 5 0"/>
+                                    <StackPanel>
+                                        <TextBlock Text="Local" FontSize="24"/>
+                                        <TextBlock Text="C:\Temp" FontSize="12"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </materialDesign:Card>
+
+                            <materialDesign:Card Padding="10" Margin="5 2">
+                                <DockPanel>
+                                    <CheckBox DockPanel.Dock="Left" IsChecked="{Binding UseS3Storage, Mode=TwoWay}"/>
+                                    <StackPanel DockPanel.Dock="Right" VerticalAlignment="Center">
+                                        <Button Height="16" Width="16">
+                                            <Button.Template>
+                                                <ControlTemplate>
+                                                    <Image Source="Resources/edit_24_24.png"/>
+                                                </ControlTemplate>
+                                            </Button.Template>
+                                        </Button>
+
+                                        <Button Height="16" Width="16" Margin="-3 4 0 0">
+                                            <Button.Template>
+                                                <ControlTemplate>
+                                                    <Image Source="Resources/delete_24_24.png"/>
+                                                </ControlTemplate>
+                                            </Button.Template>
+                                        </Button>
+                                    </StackPanel>
+
+                                    <Image Source="Resources/cloud_64_64.png" DockPanel.Dock="Left" Height="36" Width="36" 
+                                           VerticalAlignment="Top" Margin="8 0 5 0"/>
+                                    <StackPanel>
+                                        <TextBlock Text="S3" FontSize="24"/>
+                                        <TextBlock Text="https://dms.amazon.com" FontSize="12"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </materialDesign:Card>
+
+                            <materialDesign:Card Padding="10" Margin="5 2">
+                                <DockPanel>
+                                    <CheckBox DockPanel.Dock="Left" IsChecked="{Binding UseMongoDBStorage, Mode=TwoWay}"/>
+                                    <StackPanel DockPanel.Dock="Right" VerticalAlignment="Center">
+                                        <Button Height="16" Width="16">
+                                            <Button.Template>
+                                                <ControlTemplate>
+                                                    <Image Source="Resources/edit_24_24.png"/>
+                                                </ControlTemplate>
+                                            </Button.Template>
+                                        </Button>
+
+                                        <Button Height="16" Width="16" Margin="-3 4 0 0">
+                                            <Button.Template>
+                                                <ControlTemplate>
+                                                    <Image Source="Resources/delete_24_24.png"/>
+                                                </ControlTemplate>
+                                            </Button.Template>
+                                        </Button>
+                                    </StackPanel>
+
+                                    <Image Source="Resources/database_48_48.png" DockPanel.Dock="Left" Height="36" Width="36" 
+                                           VerticalAlignment="Top" Margin="8 0 5 0"/>
+                                    <StackPanel>
+                                        <TextBlock Text="MongoDB" FontSize="24"/>
+                                        <TextBlock Text="mongodb://localhost:27017/dms" FontSize="12"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </materialDesign:Card>
+                            
+                            <TextBlock HorizontalAlignment="Center" Text="Add storage" TextDecorations="Underline"
+                                   FontSize="16" Margin="5" Foreground="{DynamicResource PrimaryHueMidBrush}"/>
+                        </ItemsControl.Items>
+                    </ItemsControl>
+                </StackPanel>
+
+                <GridSplitter Grid.Column="1" Width="1" 
+                          Foreground="{DynamicResource PrimaryHueDarkBrush}" Margin="10 70"/>
+
+                <DataGrid Name="grid" Grid.Column="2" ItemsSource="{Binding TestCases}" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Test case" Width="1.5*" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="Date" Width="*" Binding="{Binding Date}"/>
+                        <DataGridTextColumn Header="Result" Width="*" Binding="{Binding Result}"/>
+                        <DataGridCheckBoxColumn Header="Local" Width="Auto" IsReadOnly="False" 
+                                                Binding="{Binding IsInLocalStorage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                Visibility="{Binding DataContext.UseLocalStorage, Converter={StaticResource BooleanToVisibilityConverter},
+                                                                Source={x:Reference DataContextHolder}}"/>
+                        <DataGridCheckBoxColumn Header="S3" Width="Auto" IsReadOnly="False" 
+                                                Binding="{Binding IsInS3Storage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                Visibility="{Binding DataContext.UseS3Storage, Converter={StaticResource BooleanToVisibilityConverter},
+                                                                Source={x:Reference DataContextHolder}}"/>
+                        <DataGridCheckBoxColumn Header="MongoDB" Width="Auto" IsReadOnly="False" 
+                                                Binding="{Binding IsInMongoDBStorage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                Visibility="{Binding DataContext.UseMongoDBStorage, Converter={StaticResource BooleanToVisibilityConverter},
+                                                                Source={x:Reference DataContextHolder}}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </DockPanel>
+
+        <materialDesign:DialogHost>
+            <materialDesign:DialogHost.DialogContentTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="50 20">
+                        <TextBlock Text="{Binding}"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                            <Button Style="{DynamicResource MaterialDesignFlatButton}"
+                                        IsDefault="True"
+                                        Margin="0 8 8 0"
+                                        Command="materialDesign:DialogHost.CloseDialogCommand">
+                                <Button.CommandParameter>
+                                    <system:Boolean>True</system:Boolean>
+                                </Button.CommandParameter>
+                                YES
+                            </Button>
+                            <Button Style="{DynamicResource MaterialDesignFlatButton}"
+                                        IsCancel="True"
+                                        Margin="0 8 8 0"
+                                        Command="materialDesign:DialogHost.CloseDialogCommand">
+                                <Button.CommandParameter>
+                                    <system:Boolean>False</system:Boolean>
+                                </Button.CommandParameter>
+                                CANCEL
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </materialDesign:DialogHost.DialogContentTemplate>
+        </materialDesign:DialogHost>
+    </Grid>
+</Window>

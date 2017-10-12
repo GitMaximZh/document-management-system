@@ -1,0 +1,1 @@
+mongod --dbpath e:\Work\Centum\RS_DMS_Prototype\data\

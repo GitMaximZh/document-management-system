@@ -15,11 +15,11 @@ namespace DMS.Core.Persistence
     {
         private const string BUCKET = "rs-dms";
         private AmazonS3Client s3Client = new AmazonS3Client(
-            new BasicAWSCredentials("AKIAI4B7GDTVFVM23L4A", "OPWQJ2RhxNllgs9N/L6GkJezym7AfuXQLnKrpSY5"),
+            new BasicAWSCredentials("########", "########"),
             RegionEndpoint.EUCentral1);
 
         //private AmazonS3Client s3Client = new AmazonS3Client(
-        //    new BasicAWSCredentials("AKIAJ24BFEFHHGJ6HG4Q", "BVF60+pkTfw2d/jACavFLI5Cxkl0E4iCw8KcKLy5"),
+        //    new BasicAWSCredentials("########", "########"),
         //    RegionEndpoint.EUCentral1);
 
         public void Initialize()

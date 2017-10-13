@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "RS.DMS.Web": {
+    "DMS.WebAPI": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "documents",

@@ -18,7 +18,8 @@ namespace DMS.WebAPI
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .UseApplicationInsights()
-                .UseUrls("http://localhost:5001/")
+                //should be removed otherwise docker container does not work as it can not to bind to localhost:5001
+                //.UseUrls("http://localhost:5001/")
                 .Build();
 
             host.Run();

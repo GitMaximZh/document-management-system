@@ -14,11 +14,10 @@ namespace DMS.Core.Persistence
         private IMongoDatabase database;
         private IMongoCollection<BsonDocument> metadataCollection;
         private GridFSBucket fileBucket;
-
-
+       
         public void Initialize()
         {
-            client = new MongoClient();
+            client = new MongoClient("mongodb://mongo:27017");
             database = client.GetDatabase("rs-dms");
             metadataCollection = database.GetCollection<BsonDocument>("metadata");
             fileBucket = new GridFSBucket(database, new GridFSBucketOptions

@@ -1,0 +1,22 @@
+﻿{
+  "family": "dms-web-api",
+  "containerDefinitions": [
+    {
+      "name": "dms-web-api",
+      "image": "[id].dkr.ecr.us-east-1.amazonaws.com/mzh_on_aws",
+      "cpu": 1,
+      "memory": 256,
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80
+        }
+      ],
+      "entryPoint": [
+        "dotnet",
+        "DMS.WebAPI.dll"
+      ],
+      "essential": true
+    }
+  ]
+}

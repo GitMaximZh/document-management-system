@@ -4,7 +4,7 @@ services:
         image: dms-web-api:latest
         container_name: "dms-web-api"
         ports:
-            - 8080:80
+            - 80:80
         links:
             - mongodb
         depends_on:
@@ -16,7 +16,7 @@ services:
           - MONGO_DATA_DIR=/data/db
           - MONGO_LOG_DIR=/dev/null
         volumes:
-          - ./data/db:/data/db
+          - /data/db:/data/db
         ports:
             - 27017:27017
         command: mongod --smallfiles --logpath=/dev/null # --quiet
